@@ -38,5 +38,6 @@ RUN /bin/bash -c 'source /miniconda/envs/py35/bin/activate py35 \
 RUN echo "if (tty -s); then \n\
     source /miniconda/envs/py35/bin/activate py35\n\
 fi" >> /root/.bashrc
-RUN python -m pliers.support.download
+RUN /bin/bash -c 'source /miniconda/envs/py35/bin/activate py35 \
+ && python -m pliers.support.download'
 CMD ["/bin/bash"]
