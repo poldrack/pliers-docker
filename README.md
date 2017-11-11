@@ -32,7 +32,7 @@ This should be obvious, but just to be sure: NEVER check this file into a github
 
 4. Open an interactive session on the docker container:
 
-    docker run --env-file ./env.list -it -v /path/to/pliers-docker:/root/share pliers /bin/bash
+    docker run --env-file ./env.list -it -v /path/to/pliers-docker:/root/share pliers
     
 where /path/to/pliers-docker contains the files generated above.
 
