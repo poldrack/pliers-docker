@@ -16,28 +16,24 @@ To use it:
 
     docker build -t pliers .
 
-2. Create a file that contains all of the relevant API keys, called env.sh:
+2. Create a file that contains all of the relevant API keys, called env.list:
 
 ```
-export WIT_AI_API_KEY="abc123"
-export IBM_USERNAME="joe@schmo.edu"
-export IBM_PASSWORD="xyzabc"
-export INDICO_APP_KEY="abcyyz"
-export GOOGLE_APPLICATION_CREDENTIALS="/root/share/googleapi.json"
-export CLARIFAI_API_KEY="hhhvvv"
+WIT_AI_API_KEY="abc123"
+IBM_USERNAME="joe@schmo.edu"
+IBM_PASSWORD="xyzabc"
+INDICO_APP_KEY="abcyyz"
+GOOGLE_APPLICATION_CREDENTIALS="/root/share/googleapi.json"
+CLARIFAI_API_KEY="hhhvvv"
 ```
-This should be obvious, but just in case: NEVER check this file into a github repository, unless you want to buy free cloud computing for a cybercriminal.
+This should be obvious, but just to be sure: NEVER check this file into a github repository, unless you want to pay for free cloud computing for a cybercriminal.
 
 3. Obtain a service account key for your Google Cloud account, and save it to a file called googleapi.json
 
 4. Open an interactive session on the docker container:
 
-    docker run -it -v /path/to/pliers-docker:/root/share pliers /bin/bash
+    docker run --env-file ./env.list -it -v /path/to/pliers-docker:/root/share pliers /bin/bash
     
 where /path/to/pliers-docker contains the files generated above.
 
-5. Set up the python environment:
-
-    . setup.sh
-
-At this point you should have a python environment that is ready for you to start using pliers.
+At this point you should have a python (3.5) environment that is ready for you to start using pliers.
