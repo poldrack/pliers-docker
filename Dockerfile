@@ -35,5 +35,6 @@ RUN git clone https://github.com/poldrack/pliers.git
 WORKDIR /root/pliers
 RUN /bin/bash -c 'source /miniconda/envs/py35/bin/activate py35 \
  && python setup.py install' 
-
-
+RUN echo "if (tty -s); then \n\
+    source /miniconda/envs/py35/bin/activate py35\n\
+fi" >> /root/.bashrc
