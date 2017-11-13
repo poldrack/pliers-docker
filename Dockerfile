@@ -31,7 +31,7 @@ ADD pysetup.py /root/pysetup.py
 RUN /bin/bash -c 'source /miniconda/envs/py35/bin/activate py35 \
  && python /root/pysetup.py'
 
-RUN git clone https://github.com/poldrack/pliers.git
+RUN git clone https://github.com/tyarkoni/pliers.git
 WORKDIR /root/pliers
 RUN /bin/bash -c 'source /miniconda/envs/py35/bin/activate py35 \
  && python setup.py install' 
